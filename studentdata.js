@@ -7,6 +7,7 @@ function displayDetails() {
   var state = document.getElementById("state").value;
   var country = document.getElementById("country").value;
   var pinCode = document.getElementById("pin_code").value;
+  var pinCode = document.getElementById("pin_code").value;
 
   //   console.log(name);
   //   console.log(age);
@@ -25,6 +26,7 @@ function displayDetails() {
   var col5 = row.appendChild(document.createElement("td"));
   var col6 = row.appendChild(document.createElement("td"));
   var col7 = row.appendChild(document.createElement("td"));
+  var col8 = row.appendChild(document.createElement("td"));
 
   col0.innerHTML = employeId;
   col1.innerHTML = name;
@@ -34,6 +36,8 @@ function displayDetails() {
   col5.innerHTML = state;
   col6.innerHTML = country;
   col7.innerHTML = pinCode;
+  col8.innerHTML = col8.innerHTML =
+    '<button class="button edit"><i class="far fa-user"></i></button><button class="btn delete"> <i class="fa-solid fa-trash-can"></i></button>&nbsp;';
 
   //   document.getElementById("showName").innerHTML = name;
   //   document.getElementById("showAge").innerHTML = age;
