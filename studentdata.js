@@ -1,3 +1,5 @@
+var x;
+
 function displayDetails() {
   var employeId = document.getElementById("employee_id").value;
   var name = document.getElementById("name").value;
@@ -7,7 +9,7 @@ function displayDetails() {
   var state = document.getElementById("state").value;
   var country = document.getElementById("country").value;
   var pinCode = document.getElementById("pin_code").value;
-  var pinCode = document.getElementById("pin_code").value;
+  // var pinCode = document.getElementById("pin_code").value;
 
   // Storing the table elements in a variable using table is
   var takeId = document.getElementById("table_id");
@@ -17,17 +19,7 @@ function displayDetails() {
   // Adding a row(child) to the table(patrnt)
   takeId.appendChild(row);
 
-  // function del(btn) {
-  //   var row = btn.parentNode.parentNode;
-  //   console.log(row);
-  //   r = row.parentNode;
-
-  //   r.removeChild(row);
-
-  //   console.log(btn);
-  // }
-
-  // Creating "td" element and add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
+  // add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
   var col0 = row.appendChild(document.createElement("td"));
   var col1 = row.appendChild(document.createElement("td"));
   var col2 = row.appendChild(document.createElement("td"));
@@ -38,6 +30,7 @@ function displayDetails() {
   var col7 = row.appendChild(document.createElement("td"));
   var col8 = row.appendChild(document.createElement("td"));
 
+  // Add data in column
   col0.innerHTML = employeId;
   col1.innerHTML = name;
   col2.innerHTML = mobileNumber;
@@ -46,18 +39,31 @@ function displayDetails() {
   col5.innerHTML = state;
   col6.innerHTML = country;
   col7.innerHTML = pinCode;
-  col8.innerHTML = '<button type="button" onclick="del(this)">Delete</button>';
-
-  //   document.getElementById("showName").innerHTML = name;
-  //   document.getElementById("showAge").innerHTML = age;
-  //   document.getElementById("showEmail").innerHTML = email;
-  //   document.getElementById("showCity").innerHTML = city;
-  // }
+  // col8.innerHTML = '<button type="button" onclick="edit()">Edit</button>';
+  col8.innerHTML =
+    '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" >Delete</button>';
 }
 
-function del(btn) {
-  var row_parent = btn.parentNode.parentNode;
+function myFunction(i) {
+  x = i;
+  console.log(i.parentNode.parentNode);
+}
+
+// Delete Function
+function del() {
+  var row_parent = x.parentNode.parentNode;
   var table_parent = row_parent.parentNode;
 
   table_parent.removeChild(row_parent);
 }
+
+// function edit() {
+//   var employeId = document.getElementById("employee_id").value;
+//   var name = document.getElementById("name").value;
+//   var mobileNumber = document.getElementById("mobile_number").value;
+//   var email = document.getElementById("email").value;
+//   var city = document.getElementById("city").value;
+//   var state = document.getElementById("state").value;
+//   var country = document.getElementById("country").value;
+//   var pinCode = document.getElementById("pin_code").value;
+// }
