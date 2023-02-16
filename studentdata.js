@@ -9,15 +9,25 @@ function displayDetails() {
   var pinCode = document.getElementById("pin_code").value;
   var pinCode = document.getElementById("pin_code").value;
 
-  //   console.log(name);
-  //   console.log(age);
-  //   console.log(email);
-  //   console.log(city);
-
+  // Storing the table elements in a variable using table is
   var takeId = document.getElementById("table_id");
+
+  // Creating a tr(Table row) element and store the element in row variable
   var row = document.createElement("tr");
+  // Adding a row(child) to the table(patrnt)
   takeId.appendChild(row);
 
+  // function del(btn) {
+  //   var row = btn.parentNode.parentNode;
+  //   console.log(row);
+  //   r = row.parentNode;
+
+  //   r.removeChild(row);
+
+  //   console.log(btn);
+  // }
+
+  // Creating "td" element and add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
   var col0 = row.appendChild(document.createElement("td"));
   var col1 = row.appendChild(document.createElement("td"));
   var col2 = row.appendChild(document.createElement("td"));
@@ -36,12 +46,18 @@ function displayDetails() {
   col5.innerHTML = state;
   col6.innerHTML = country;
   col7.innerHTML = pinCode;
-  col8.innerHTML = col8.innerHTML =
-    '<button class="button edit"><i class="far fa-user"></i></button><button class="btn delete"> <i class="fa-solid fa-trash-can"></i></button>&nbsp;';
+  col8.innerHTML = '<button type="button" onclick="del(this)">Delete</button>';
 
   //   document.getElementById("showName").innerHTML = name;
   //   document.getElementById("showAge").innerHTML = age;
   //   document.getElementById("showEmail").innerHTML = email;
   //   document.getElementById("showCity").innerHTML = city;
   // }
+}
+
+function del(btn) {
+  var row_parent = btn.parentNode.parentNode;
+  var table_parent = row_parent.parentNode;
+
+  table_parent.removeChild(row_parent);
 }
