@@ -55,7 +55,20 @@ function del() {
   var table_parent = row_parent.parentNode;
 
   table_parent.removeChild(row_parent);
+
+  // view();
+
 }
+
+
+
+function show(){
+  var a = document.getElementById("t");
+  var b = new bootstrap.Toast(a);
+  b.show();
+}
+
+
 
 // function edit() {
 //   var employeId = document.getElementById("employee_id").value;
