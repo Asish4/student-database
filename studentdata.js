@@ -45,7 +45,7 @@ function displayDetails() {
   // col8.innerHTML = '<button type="button" onclick="edit()">Edit</button>';
   col8.innerHTML =
     '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" >Delete</button>';
-    col9.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this)"  data-target="#editModal" >Edit</button>';
+    col9.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal" >Edit</button>';
 }
 
 function myFunction(i) {
@@ -85,7 +85,7 @@ function showDetails() {
 
   var a = x.parentNode.parentNode;
 
-
+    
  
   
   var employeId = document.getElementById("employee_ids").value;
@@ -111,7 +111,23 @@ function showDetails() {
    // col8.innerHTML = '<button type="button" onclick="edit()">Edit</button>';
    col8.innerHTML =
      '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" >Delete</button>';
-    col9.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this)"  data-target="#editModal" >Edit</button>';
+    col9.innerHTML = '<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction(this) showValues();"  data-target="#editModal" >Edit</button>';
+ }
+
+ function showValues(){
+  var takeId = document.getElementById("table_id");
+  var a = x.parentNode.parentNode;
+
+  var employeId = document.getElementById("employee_ids").value = a.childNodes[0].innerHTML;
+  var name = document.getElementById("name_ids").value = a.childNodes[1].innerHTML;;
+  var mobileNumber = document.getElementById("mobile_ids").value = a.childNodes[2].innerHTML;;
+  var email = document.getElementById("email_ids").value = a.childNodes[3].innerHTML;;
+  var city = document.getElementById("city_ids").value = a.childNodes[4].innerHTML;;
+  var state = document.getElementById("state_ids").value = a.childNodes[5].innerHTML;;
+  var country = document.getElementById("country_ids").value = a.childNodes[6].innerHTML;;
+  var pinCode = document.getElementById("p_id").value = a.childNodes[7].innerHTML;;
+
+
  }
 
 
