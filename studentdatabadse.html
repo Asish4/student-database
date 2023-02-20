@@ -237,7 +237,7 @@
       <!-- Toast for show a message "Delete Successfull" -->
       <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
 
-        <!-- Then put toasts within -->
+       
         <div class="toast" id="t" role="alert" aria-live="assertive" aria-atomic="true" style="background-color:rgb(4, 102, 231);" >
           <div class="toast-header">
        
@@ -254,7 +254,7 @@
 
     <!-- Modal form for edit  -->
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -400,7 +400,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- Modal form for edit data -->
@@ -424,7 +424,7 @@
                   <div class="col-lg-6">
                     <input
                       type="number"
-                      id="e_id"
+                      id="employee_ids"
                       class="form-control"
                       name="employee_id"
                     />
@@ -439,7 +439,7 @@
                   </div>
     
                   <div class="col-lg-6">
-                    <input type="text" id="n_id" class="form-control" name="name" />
+                    <input type="text" id="name_ids" class="form-control" name="name"/>
                   </div>
                   <br /><br />
                 </div>
@@ -452,7 +452,7 @@
                   <div class="col-lg-6">
                     <input
                       type="number"
-                      id="m_id"
+                      id="mobile_ids"
                       class="form-control"
                       name="mobile_number"
                     />
@@ -467,7 +467,7 @@
                   <div class="col-lg-6 text-right">
                     <input
                       type="email"
-                      id="em_id"
+                      id="email_ids"
                       class="form-control"
                       name="email"
                     />
@@ -480,7 +480,7 @@
                     <label for="city">City:</label>
                   </div>
                   <div class="col-lg-6">
-                    <select name="city" id="c_id" class="form-control">
+                    <select name="city" id="city_ids" class="form-control">
                       <option value="Kolkata">Kolkata</option>
                       <option value="Mumbai">Mumbai</option>
                       <option value="Delhi">Delhi</option>
@@ -496,7 +496,7 @@
                   </div>
     
                   <div class="col-lg-6 text-right">
-                    <select name="state" id="s_id" class="form-control">
+                    <select name="state" id="state_ids" class="form-control">
                       <option value="Andaman and Nicobar Islands">
                         Andaman and Nicobar Islands
                       </option>
@@ -516,7 +516,7 @@
                   </div>
     
                   <div class="col-lg-6 text-right">
-                    <select name="country" id="co_id" class="form-control">
+                    <select name="country" id="country_ids" class="form-control">
                       <option value="ind">Ind</option>
                       <option value="pak">Pak</option>
                       <option value="aus">Aus</option>
@@ -534,7 +534,7 @@
                   <div class="col-lg-6">
                     <input
                       type="number"
-                      id="p"
+                      id="p_id"
                       class="form-control"
                       name="pin_code"
                     />
@@ -546,7 +546,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="button_id" onclick="showDetails()">Send message</button>
+              <button type="button" class="btn btn-primary" id="button_id" onclick="showDetails()">Submit</button>
             </div>
           </div>
         </div>
