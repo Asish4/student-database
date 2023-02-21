@@ -42,11 +42,10 @@ function displayDetails() {
     col5.innerHTML = state;
     col6.innerHTML = country;
     col7.innerHTML = pinCode;
-    // col8.innerHTML = '<button type="button" onclick="edit()">Edit</button>';
     col8.innerHTML =
-        '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
-    col9.innerHTML =
         '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
+    col9.innerHTML =
+        '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 }
 
 function myFunction(i) {
