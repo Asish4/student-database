@@ -13,6 +13,8 @@ function formSubmitCheck(check) {
 
 
 }
+
+
    
        
         function displayDetails() {
@@ -91,6 +93,17 @@ function showDeleteToast() {
     var a = document.getElementById("t");
     var b = new bootstrap.Toast(a);
     b.show();
+}
+
+
+function modalFormSubmitCheck(check) {
+    console.log("bedforeif ",check);
+    if (check == true) {
+        showDetails();
+        
+    }
+
+
 }
 
 // Show date after Edit

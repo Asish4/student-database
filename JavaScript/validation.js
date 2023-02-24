@@ -77,3 +77,81 @@ function validateForm() {
 
     return returnval;
 }
+
+
+
+
+
+// Validation for modal form
+
+function validateModalForm() {
+    var returnval = true;
+    clearErrors();
+
+    console.log("modal form working");
+
+    var name = document.forms["modalForm"]["name"].value;
+    // console.log(name);
+
+    if (name.length < 5) {
+        setError("edit-name-id", "*length of name is too short");
+        returnval = false;
+    }
+
+    var phone = document.forms["modalForm"]["mobile_number"].value;
+    if (phone.length != 10) {
+        setError("edit-mobile-number-id", "*Phone number must be 10 digit");
+        returnval = false;
+    }
+    if (phone.charAt(0) != 6 && phone.charAt(0) != 7 && phone.charAt(0) != 8 && phone.charAt(0) != 9) {
+        setError("edit-mobile-number-id", "*Number should start with 6,7,8,9");
+        returnval = false;
+    }
+
+    var email = document.forms["modalForm"]["email"].value;
+    if (email.indexOf("@") <= 0) {
+        setError("edit-email-id", "*Invalid @ position");
+        returnval = false;
+    }
+    var email = document.forms["modalForm"]["email"].value;
+    if ((email.charAt((email.length)-4) != '.') && (email.charAt((email.length)-3) != '.')) {
+        setError("edit-email-id", "*Invalid . position");
+        returnval = false;
+    }
+
+    var city = document.forms["modalForm"]["city"].value;
+    if (city== " ") {
+        setError("edit-city-id", "*Please Select your city");
+        returnval = false;
+    }
+
+    var state = document.forms["modalForm"]["state"].value;
+    if (state == " ") {
+        setError("edit-state-id", "*Please Select your state");
+        returnval = false;
+    }
+    var country = document.forms["modalForm"]["country"].value;
+    if (country== " ") {
+        setError("edit-country-id", "*Please Select your city");
+        returnval = false;
+    }
+
+    // var id = document.forms["myForm"]["employee_id"].value;
+
+    // var t_id = document.getElementById("table_id");
+    // console.log (t_id.rows[2].cells[0]);
+
+    // t_id.rows.length
+    // if ( ) {
+    //     setError("employee_id", "*Id already exist");
+    //     returnval = false;
+    // }
+
+
+    console.log(returnval);
+    modalFormSubmitCheck(returnval);
+
+    return returnval;
+}
+
+

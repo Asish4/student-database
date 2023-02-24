@@ -293,19 +293,20 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="#" id="s_form">
+                                <form action="#" id="s_form" name="modalForm">
                                     <div class="form-group row">
                                         <div class="col-lg-6 text-right">
                                             <label for="employee_id">Employee ID:</label>
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6" id="edit-employee-id">
                                             <input
                                                 type="number"
                                                 id="employee_ids"
                                                 class="form-control"
                                                 name="employee_id"
                                             />
+                                            <small class="formerror"></small>
                                         </div>
 
                                         <br /><br />
@@ -316,8 +317,9 @@
                                             <label for="name">Name:</label>
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6" id="edit-name-id">
                                             <input type="text" id="name_ids" class="form-control" name="name" />
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -325,15 +327,17 @@
                                     <div class="form-group row">
                                         <div class="col-lg-6 text-right">
                                             <label for="mobile_number">Mobile Number:</label>
+
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6" id="edit-mobile-number-id">
                                             <input
                                                 type="number"
                                                 id="mobile_ids"
                                                 class="form-control"
                                                 name="mobile_number"
                                             />
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -342,8 +346,9 @@
                                         <div class="col-lg-6 text-right">
                                             <label for="email">Email:</label>
                                         </div>
-                                        <div class="col-lg-6 text-right">
+                                        <div class="col-lg-6 text-right" id="edit-email-id">
                                             <input type="email" id="email_ids" class="form-control" name="email" />
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -352,13 +357,15 @@
                                         <div class="col-lg-6 text-right">
                                             <label for="city">City:</label>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6" id="edit-city">
                                             <select name="city" id="city_ids" class="form-control">
+                                                <option value=" ">None</option>
                                                 <option value="Kolkata">Kolkata</option>
                                                 <option value="Mumbai">Mumbai</option>
                                                 <option value="Delhi">Delhi</option>
                                                 <option value="Pune">Pune</option>
                                             </select>
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -368,17 +375,19 @@
                                             <label for="state">State:</label>
                                         </div>
 
-                                        <div class="col-lg-6 text-right">
+                                        <div class="col-lg-6 text-right" id="edit-state-id">
                                             <select name="state" id="state_ids" class="form-control">
                                                 <option value="Andaman and Nicobar Islands">
                                                     Andaman and Nicobar Islands
                                                 </option>
+                                                <option value=" ">None</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="AR">Arunachal Pradesh</option>
                                                 <option value="Assam">Assam</option>
                                                 <option value="Bihar">Bihar</option>
                                                 <option value="WB">West Bengal</option>
                                             </select>
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -388,13 +397,15 @@
                                             <label for="country">Country:</label>
                                         </div>
 
-                                        <div class="col-lg-6 text-right">
+                                        <div class="col-lg-6 text-right" id="edit-country-id">
                                             <select name="country" id="country_ids" class="form-control">
+                                                <option value=" ">None</option>
                                                 <option value="ind">Ind</option>
                                                 <option value="pak">Pak</option>
                                                 <option value="aus">Aus</option>
                                                 <option value="usa">USA</option>
                                             </select>
+                                            <small class="formerror"></small>
                                         </div>
                                         <br /><br />
                                     </div>
@@ -416,9 +427,9 @@
                                 <button
                                     type="button"
                                     class="btn btn-primary"
-                                    data-dismiss="modal"
                                     id="button_id"
-                                    onclick="showDetails(); "
+                                    onclick="validateModalForm()"
+                                    data-dismiss="modal"
                                 >
                                     Submit
                                 </button>
