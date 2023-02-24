@@ -16,6 +16,8 @@
 
         <!-- font-awesome icon cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+        <link rel="stylesheet" href="./studentdata.css" />
     </head>
 
     <body>
@@ -26,15 +28,22 @@
         <div class="container">
             <div class="row">
                 <!-- Form for insert data from user -->
-                <div class="col-lg-3" id="form">
-                    <form action="#" id="studentform">
+                <div class="col-lg-4" id="form">
+                    <form action="#" id="studentform" name="myForm" >
                         <div class="form-group row">
                             <div class="col-lg-6 text-right">
                                 <label for="employee_id">Employee ID:</label>
                             </div>
 
-                            <div class="col-lg-6">
-                                <input type="number" id="employee_id" class="form-control" name="employee_id" />
+                            <div class="col-lg-6" id="employee-id">
+                                <input
+                                    type="number"
+                                    id="employee_id"
+                                    class="form-control"
+                                    name="employee_id"
+                                    required
+                                />
+                                <small class="formerror"></small>
                             </div>
 
                             <br /><br />
@@ -45,8 +54,9 @@
                                 <label for="name">Name:</label>
                             </div>
 
-                            <div class="col-lg-6">
-                                <input type="text" id="name" class="form-control" name="name" />
+                            <div class="col-lg-6" id="name-id">
+                                <input type="text" id="name" class="form-control" name="name" required />
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -56,8 +66,15 @@
                                 <label for="mobile_number">Mobile Number:</label>
                             </div>
 
-                            <div class="col-lg-6">
-                                <input type="number" id="mobile_number" class="form-control" name="mobile_number" />
+                            <div class="col-lg-6" id="mobile-id">
+                                <input
+                                    type="number"
+                                    id="mobile_number"
+                                    class="form-control"
+                                    name="mobile_number"
+                                    required
+                                />
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -66,8 +83,9 @@
                             <div class="col-lg-6 text-right">
                                 <label for="email">Email:</label>
                             </div>
-                            <div class="col-lg-6 text-right">
+                            <div class="col-lg-6" id="email-id">
                                 <input type="email" id="email" class="form-control" name="email" />
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -76,13 +94,15 @@
                             <div class="col-lg-6 text-right">
                                 <label for="city">City:</label>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" id="city-id">
                                 <select name="city" id="city" class="form-control">
+                                    <option value=" ">None</option>
                                     <option value="Kolkata">Kolkata</option>
                                     <option value="Mumbai">Mumbai</option>
                                     <option value="Delhi">Delhi</option>
                                     <option value="Pune">Pune</option>
                                 </select>
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -92,8 +112,9 @@
                                 <label for="state">State:</label>
                             </div>
 
-                            <div class="col-lg-6 text-right">
+                            <div class="col-lg-6 text-right" id="state-id">
                                 <select name="state" id="state" class="form-control">
+                                    <option value=" ">None</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="AR">Arunachal Pradesh</option>
@@ -101,6 +122,7 @@
                                     <option value="Bihar">Bihar</option>
                                     <option value="WB">West Bengal</option>
                                 </select>
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -110,13 +132,15 @@
                                 <label for="country">Country:</label>
                             </div>
 
-                            <div class="col-lg-6 text-right">
+                            <div class="col-lg-6 text-right" id="country-id">
                                 <select name="country" id="country" class="form-control">
+                                    <option value=" ">None</option>
                                     <option value="ind">Ind</option>
                                     <option value="pak">Pak</option>
                                     <option value="aus">Aus</option>
                                     <option value="usa">USA</option>
                                 </select>
+                                <small class="formerror"></small>
                             </div>
                             <br /><br />
                         </div>
@@ -138,8 +162,10 @@
                                 <button
                                     class="btn btn-primary"
                                     type="button"
+                                    value="submit"
                                     id="button"
-                                    onclick="showSubmitToast();displayDetails();"
+                                    onclick="validateForm()"
+                                    
                                 >
                                     Submit
                                 </button>
@@ -151,7 +177,7 @@
                 </div>
 
                 <!-- Table for show data in table which was given by user in "form" element   -->
-                <div class="col-lg-9" class="table-responsive" id="table">
+                <div class="col-lg-8" class="table-responsive" id="table">
                     <table class="table p-3" border="2" id="table_id">
                         <tr class="p-3">
                             <th>Employee id</th>
@@ -203,28 +229,23 @@
             </div>
 
             <!-- Toast for show a message "Delete Successfull" -->
+
             <div
-                aria-live="polite"
+                class="toast"
+                id="t"
+                role="alert"
+                aria-live="assertive"
                 aria-atomic="true"
-                class="d-flex justify-content-center align-items-center"
-                style="min-height: 200px"
+                style="background-color: rgb(4, 102, 231); position: absolute; top: 0; right: 0"
+                ;
             >
-                <div
-                    class="toast"
-                    id="t"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                    style="background-color: rgb(4, 102, 231)"
-                >
-                    <div class="toast-header">
-                        <small>11 mins ago</small>
-                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="toast-body">Successfully Deleted</div>
+                <div class="toast-header">
+                    <small>11 mins ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="toast-body">Successfully Deleted</div>
             </div>
 
             <!-- Toast for show a message "Successfully submited" -->
@@ -252,308 +273,164 @@
                 </div>
             </div>
 
-            <!-- Modal form for edit  -->
-
-            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-    
-              <form action="#" id="s_form">
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="employee_id">Employee ID:</label>
-                  </div>
-    
-                  <div class="col-lg-6">
-                    <input
-                      type="number"
-                      id="e_id"
-                      class="form-control"
-                      name="employee_id"
-                    />
-                  </div>
-    
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="name">Name:</label>
-                  </div>
-    
-                  <div class="col-lg-6">
-                    <input type="text" id="n_id" class="form-control" name="name" />
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="mobile_number">Mobile Number:</label>
-                  </div>
-    
-                  <div class="col-lg-6">
-                    <input
-                      type="number"
-                      id="m_id"
-                      class="form-control"
-                      name="mobile_number"
-                    />
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="email">Email:</label>
-                  </div>
-                  <div class="col-lg-6 text-right">
-                    <input
-                      type="email"
-                      id="em_id"
-                      class="form-control"
-                      name="email"
-                    />
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="city">City:</label>
-                  </div>
-                  <div class="col-lg-6">
-                    <select name="city" id="c_id" class="form-control">
-                      <option value="Kolkata">Kolkata</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Pune">Pune</option>
-                    </select>
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="state">State:</label>
-                  </div>
-    
-                  <div class="col-lg-6 text-right">
-                    <select name="state" id="s_id" class="form-control">
-                      <option value="Andaman and Nicobar Islands">
-                        Andaman and Nicobar Islands
-                      </option>
-                      <option value="Andhra Pradesh">Andhra Pradesh</option>
-                      <option value="AR">Arunachal Pradesh</option>
-                      <option value="Assam">Assam</option>
-                      <option value="Bihar">Bihar</option>
-                      <option value="WB">West Bengal</option>
-                    </select>
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group text-right row">
-                  <div class="col-lg-6">
-                    <label for="country">Country:</label>
-                  </div>
-    
-                  <div class="col-lg-6 text-right">
-                    <select name="country" id="co_id" class="form-control">
-                      <option value="ind">Ind</option>
-                      <option value="pak">Pak</option>
-                      <option value="aus">Aus</option>
-                      <option value="usa">USA</option>
-                    </select>
-                  </div>
-                  <br /><br />
-                </div>
-    
-                <div class="form-group row">
-                  <div class="col-lg-6 text-right">
-                    <label for="pin_code">PIN Code:</label>
-                  </div>
-    
-                  <div class="col-lg-6">
-                    <input
-                      type="number"
-                      id="p"
-                      class="form-control"
-                      name="pin_code"
-                    />
-                  </div>
-                  <br /><br />
-                </div>
-              </form>
-    
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
             <!-- Modal form for edit data -->
-            <div
-                class="modal fade"
-                id="editModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" id="s_form">
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="employee_id">Employee ID:</label>
+
+            <div class="col-md-2">
+                <div
+                    class="modal fade"
+                    id="editModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" id="s_form">
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="employee_id">Employee ID:</label>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <input
+                                                type="number"
+                                                id="employee_ids"
+                                                class="form-control"
+                                                name="employee_id"
+                                            />
+                                        </div>
+
+                                        <br /><br />
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <input
-                                            type="number"
-                                            id="employee_ids"
-                                            class="form-control"
-                                            name="employee_id"
-                                        />
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="name">Name:</label>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <input type="text" id="name_ids" class="form-control" name="name" />
+                                        </div>
+                                        <br /><br />
                                     </div>
 
-                                    <br /><br />
-                                </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="mobile_number">Mobile Number:</label>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="name">Name:</label>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <input type="text" id="name_ids" class="form-control" name="name" />
-                                    </div>
-                                    <br /><br />
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="mobile_number">Mobile Number:</label>
+                                        <div class="col-lg-6">
+                                            <input
+                                                type="number"
+                                                id="mobile_ids"
+                                                class="form-control"
+                                                name="mobile_number"
+                                            />
+                                        </div>
+                                        <br /><br />
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <input
-                                            type="number"
-                                            id="mobile_ids"
-                                            class="form-control"
-                                            name="mobile_number"
-                                        />
-                                    </div>
-                                    <br /><br />
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="email">Email:</label>
-                                    </div>
-                                    <div class="col-lg-6 text-right">
-                                        <input type="email" id="email_ids" class="form-control" name="email" />
-                                    </div>
-                                    <br /><br />
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="city">City:</label>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <select name="city" id="city_ids" class="form-control">
-                                            <option value="Kolkata">Kolkata</option>
-                                            <option value="Mumbai">Mumbai</option>
-                                            <option value="Delhi">Delhi</option>
-                                            <option value="Pune">Pune</option>
-                                        </select>
-                                    </div>
-                                    <br /><br />
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="state">State:</label>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="email">Email:</label>
+                                        </div>
+                                        <div class="col-lg-6 text-right">
+                                            <input type="email" id="email_ids" class="form-control" name="email" />
+                                        </div>
+                                        <br /><br />
                                     </div>
 
-                                    <div class="col-lg-6 text-right">
-                                        <select name="state" id="state_ids" class="form-control">
-                                            <option value="Andaman and Nicobar Islands">
-                                                Andaman and Nicobar Islands
-                                            </option>
-                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                            <option value="AR">Arunachal Pradesh</option>
-                                            <option value="Assam">Assam</option>
-                                            <option value="Bihar">Bihar</option>
-                                            <option value="WB">West Bengal</option>
-                                        </select>
-                                    </div>
-                                    <br /><br />
-                                </div>
-
-                                <div class="form-group text-right row">
-                                    <div class="col-lg-6">
-                                        <label for="country">Country:</label>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="city">City:</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <select name="city" id="city_ids" class="form-control">
+                                                <option value="Kolkata">Kolkata</option>
+                                                <option value="Mumbai">Mumbai</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Pune">Pune</option>
+                                            </select>
+                                        </div>
+                                        <br /><br />
                                     </div>
 
-                                    <div class="col-lg-6 text-right">
-                                        <select name="country" id="country_ids" class="form-control">
-                                            <option value="ind">Ind</option>
-                                            <option value="pak">Pak</option>
-                                            <option value="aus">Aus</option>
-                                            <option value="usa">USA</option>
-                                        </select>
-                                    </div>
-                                    <br /><br />
-                                </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="state">State:</label>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <div class="col-lg-6 text-right">
-                                        <label for="pin_code">PIN Code:</label>
+                                        <div class="col-lg-6 text-right">
+                                            <select name="state" id="state_ids" class="form-control">
+                                                <option value="Andaman and Nicobar Islands">
+                                                    Andaman and Nicobar Islands
+                                                </option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="AR">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="WB">West Bengal</option>
+                                            </select>
+                                        </div>
+                                        <br /><br />
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <input type="number" id="p_id" class="form-control" name="pin_code" />
+                                    <div class="form-group text-right row">
+                                        <div class="col-lg-6">
+                                            <label for="country">Country:</label>
+                                        </div>
+
+                                        <div class="col-lg-6 text-right">
+                                            <select name="country" id="country_ids" class="form-control">
+                                                <option value="ind">Ind</option>
+                                                <option value="pak">Pak</option>
+                                                <option value="aus">Aus</option>
+                                                <option value="usa">USA</option>
+                                            </select>
+                                        </div>
+                                        <br /><br />
                                     </div>
-                                    <br /><br />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button
-                                type="button"
-                                class="btn btn-primary"
-                                data-dismiss="modal"
-                                id="button_id"
-                                onclick="showDetails(); "
-                            >
-                                Submit
-                            </button>
+
+                                    <div class="form-group row">
+                                        <div class="col-lg-6 text-right">
+                                            <label for="pin_code">PIN Code:</label>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <input type="number" id="p_id" class="form-control" name="pin_code" />
+                                        </div>
+                                        <br /><br />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-dismiss="modal"
+                                    id="button_id"
+                                    onclick="showDetails(); "
+                                >
+                                    Submit
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-5"></div>
         </div>
+
         <script src="./studentdata.js"></script>
+        <script src="./JavaScript/validation.js"></script>
     </body>
 </html>
