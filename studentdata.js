@@ -1,14 +1,7 @@
 //Declare Global variable
-var x;
-var y;
-var c;
-
-
-
-
-
-   
-       
+    var x;
+    var y;
+    var c; 
         function displayDetails() {
 
             var id = document.getElementById("employee_id");
@@ -196,6 +189,108 @@ function showValues() {
     document.getElementById("country_ids").value = a.childNodes[6].innerHTML;
     document.getElementById("p_id").value = a.childNodes[7].innerHTML;
 }
+
+
+
+
+//API POST
+
+datas = {
+    
+    
+    "name": "Rahul",
+    "phoneNo": "1234567890",
+    "email": "kj@l.c",
+    "state": "Manipur",
+    "city": "Delhi",
+    "country": "United Kingdom",
+    "pin": 123456
+    }
+console.log(JSON.stringify(datas));
+console.log(datas);
+var url = url = "http://192.168.0.107:8080/students"
+
+param = {
+method: "post",
+headers: {
+    "Content-Type": "application/json"
+},
+
+body: JSON.stringify(datas)
+
+}
+fetch(url, param).then((response) => {
+return response.json();
+}).then((Data) => {
+    
+    
+})
+
+//API GET
+ 
+
+var url = url = "http://192.168.0.107:8080/students"
+
+param = {
+method: "get",
+headers: {
+    "Content-Type": "application/json"
+},
+
+}
+fetch(url, param).then((response) => {
+return response.json();
+}).then((Data) => {
+    data = Data;
+  
+
+var employeId = document.getElementById("employee_id").value;
+var name = document.getElementById("name").value;
+var mobileNumber = document.getElementById("mobile_number").value;
+var email = document.getElementById("email").value;
+var city = document.getElementById("city").value;
+var state = document.getElementById("state").value;
+var country = document.getElementById("country").value;
+var pinCode = document.getElementById("pin_code").value;
+// var pinCode = document.getElementById("pin_code").value;
+
+for (let index = 0; index < data.length; index++) {
+// Storing the table elements in a variable using table is
+var takeId = document.getElementById("table_id");
+
+// Creating a tr(Table row) element and store the element in row variable
+var row = document.createElement("tr");
+// Adding a row(child) to the table(patrnt)
+takeId.appendChild(row);
+
+// add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
+var col0 = row.appendChild(document.createElement("td"));
+var col1 = row.appendChild(document.createElement("td"));
+var col2 = row.appendChild(document.createElement("td"));
+var col3 = row.appendChild(document.createElement("td"));
+var col4 = row.appendChild(document.createElement("td"));
+var col5 = row.appendChild(document.createElement("td"));
+var col6 = row.appendChild(document.createElement("td"));
+var col7 = row.appendChild(document.createElement("td"));
+var col8 = row.appendChild(document.createElement("td"));
+var col9 = row.appendChild(document.createElement("td"));
+
+// Add data in column
+col0.innerHTML = data[index].id;
+col1.innerHTML = data[index].name;
+col2.innerHTML = data[index].phoneNo;
+col3.innerHTML = data[index].email;
+col4.innerHTML = data[index].city;
+col5.innerHTML = data[index].state;
+col6.innerHTML = data[index].country;
+col7.innerHTML = data[index].pin;
+col8.innerHTML =
+    '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
+col9.innerHTML =
+    '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
+}
+})
+
 
 
 
