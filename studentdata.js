@@ -4,23 +4,48 @@ var y;
 var c;
 
 
-function formSubmitCheck(check) {
-    if (check == true) {
-        displayDetails();
-        showSubmitToast();
-        
-    }
 
-
-}
 
 
    
        
         function displayDetails() {
+
+            var id = document.getElementById("employee_id");
+            if (validateID(id)) {
+                var idv = id.value;
+            }
+            var name = document.getElementById("name");
+            if (validateName(name)) {
+                var namev = name.value;
+            }
+            var ph = document.getElementById("mobile_number");
+            if (validatePh(ph)) {
+                var phv = ph.value;
+            }
+            var mail = document.getElementById("email-id");
+            if (validateMail(mail)) {
+                var mailv = mail.value;
+            }
+            var city = document.getElementById("city-id");
+            if (validateCity(city)) {
+                var cityv = city.value;
+            }
+            var state = document.getElementById("state");
+            if (validateState(state)) {
+                var statev = state.value;
+            }
+            var country = document.getElementById("country");
+            if (validateCountry(country)) {
+                var countryv = country.value;
+            }
+            var pin = document.getElementById("pin_code");
+            if (validatePIN(pin)) {
+                var pinv = pin.value;
+            }
             
                 
-           
+            if (validateAll(id, name, ph, mail, city, state, country, pin)) {
             var employeId = document.getElementById("employee_id").value;
             var name = document.getElementById("name").value;
             var mobileNumber = document.getElementById("mobile_number").value;
@@ -65,6 +90,7 @@ function formSubmitCheck(check) {
             col9.innerHTML =
                 '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
         }
+        }
 
         //Show Submit toast
         function showSubmitToast() {
@@ -73,6 +99,7 @@ function formSubmitCheck(check) {
             var b = new bootstrap.Toast(a);
             b.show();
         }
+ 
     
 
 
@@ -96,20 +123,43 @@ function showDeleteToast() {
 }
 
 
-function modalFormSubmitCheck(check) {
-    console.log("bedforeif ",check);
-    if (check == true) {
-        showDetails();
-        
-    }
 
-
-}
 
 // Show date after Edit
 function showDetails() {
     var a = x.parentNode.parentNode;
 
+    var idv = document.getElementById("employee_ids").value;
+    var name = document.getElementById("name_ids");
+    if (validateName(name)) {
+        var namev = name.value;
+    }
+    var ph = document.getElementById("mobile_ids");
+    if (validatePh(ph)) {
+        var phv = ph.value;
+    }
+    var mail = document.getElementById("email_ids");
+    if (validateMail(mail)) {
+        var mailv = mail.value;
+    }
+    var city = document.getElementById("city_ids");
+    if (validateCity(city)) {
+        var cityv = city.value;
+    }
+    var state = document.getElementById("state_ids");
+    if (validateState(state)) {
+        var statev = state.value;
+    }
+    var country = document.getElementById("country_ids");
+    if (validateCountry(country)) {
+        var countryv = country.value;
+    }
+    var pin = document.getElementById("p_id");
+    if (validatePIN(pin)) {
+        var pinv = pin.value;
+    }
+
+    if (validatemAll(name, ph, mail, city, state, country, pin)) {
     var employeId = document.getElementById("employee_ids").value;
     var name = document.getElementById("name_ids").value;
     var mobileNumber = document.getElementById("mobile_ids").value;
@@ -131,6 +181,7 @@ function showDetails() {
     col8.innerHTML =
         '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" ><i class="fa-solid fa-trash"></i></button><button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this) showValues();"  data-target="#editModal" ><i class="fa-solid fa-pen-to-square"></i></button>';
 }
+}
 
 //Show values on modal form
 function showValues() {
@@ -145,3 +196,8 @@ function showValues() {
     document.getElementById("country_ids").value = a.childNodes[6].innerHTML;
     document.getElementById("p_id").value = a.childNodes[7].innerHTML;
 }
+
+
+
+
+

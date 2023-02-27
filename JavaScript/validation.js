@@ -1,157 +1,157 @@
-function clearErrors() {
-    errors = document.getElementsByClassName("formerror");
-    for (let item of errors) {
-        item.innerHTML = "";
+
+//Validating ID
+function validateID(id) {
+    var div = id.parentNode;
+    var span = div.querySelector("#span");
+    id = id.value;
+    var len = document.getElementById("table_id").rows.length;
+    var n = 0;
+    var i;
+    for (i = 1; i < len; i++) {
+        if (id == document.getElementById("table_id").rows[i].cells[0].innerHTML) {
+            n++;
+            break;
+        }
+    }
+    if (n > 0) {
+        span.innerHTML = "Duplicate data!";
+        id = null;
+        return false;
+    }
+    else if (/^\d{1,2}$/.test(id)) {
+        span.innerHTML = null;
+        return true;
+    }
+    else {
+        span.innerHTML = "ID should be in between 0-99";
+        id = null;
+        return false;
     }
 }
 
-function setError(id, error) {
-    var element = document.getElementById(id);
-    element.getElementsByClassName("formerror")[0].innerHTML = error;
+//Validating Name
+function validateName(name) {
+    var div = name.parentNode;
+    var span = div.querySelector("#span");
+    name = name.value;
+    if (/^[a-zA-Z]+([ ][a-zA-Z]+)*$/.test(name)) {
+        span.innerHTML = null;
+        return true;
+    }
+    else {
+        span.innerHTML = "Please Check your name (A-Z/a-z)";
+        return false;
+    }
 }
 
-function validateForm() {
-    var returnval = true;
-    clearErrors();
-
-    var name = document.forms["myForm"]["name"].value;
-    // console.log(name);
-
-    if (name.length < 5) {
-        setError("name-id", "*length of name is too short");
-        returnval = false;
+//Validating Phone
+function validatePh(ph) {
+    var div = ph.parentNode;
+    var span = div.querySelector("#span");
+    ph = ph.value;
+    if (/^\d{10}$/.test(ph)) {
+        span.innerHTML = null;
+        return true;
     }
-
-    var phone = document.forms["myForm"]["mobile_number"].value;
-    if (phone.length != 10) {
-        setError("mobile-id", "*Phone number must be 10 digit");
-        returnval = false;
+    else {
+        span.innerHTML = "Enter Your 10 Digit no please";
+        return false;
     }
-    if (phone.charAt(0) != 6 && phone.charAt(0) != 7 && phone.charAt(0) != 8 && phone.charAt(0) != 9) {
-        setError("mobile-id", "*Number should start with 6,7,8,9");
-        returnval = false;
-    }
-
-    var email = document.forms["myForm"]["email"].value;
-    if (email.indexOf("@") <= 0) {
-        setError("email-id", "*Invalid @ position");
-        returnval = false;
-    }
-    var email = document.forms["myForm"]["email"].value;
-    if ((email.charAt((email.length)-4) != '.') && (email.charAt((email.length)-3) != '.')) {
-        setError("email-id", "*Invalid . position");
-        returnval = false;
-    }
-
-    var city = document.forms["myForm"]["city"].value;
-    if (city== " ") {
-        setError("city-id", "*Please Select your city");
-        returnval = false;
-    }
-
-    var state = document.forms["myForm"]["state"].value;
-    if (state == " ") {
-        setError("state-id", "*Please Select your state");
-        returnval = false;
-    }
-    var country = document.forms["myForm"]["country"].value;
-    if (country== " ") {
-        setError("country-id", "*Please Select your city");
-        returnval = false;
-    }
-
-    // var id = document.forms["myForm"]["employee_id"].value;
-
-    // var t_id = document.getElementById("table_id");
-    // console.log (t_id.rows[2].cells[0]);
-
-    // t_id.rows.length
-    // if ( ) {
-    //     setError("employee_id", "*Id already exist");
-    //     returnval = false;
-    // }
-
-
-
-    formSubmitCheck(returnval);
-
-    return returnval;
 }
 
-
-
-
-
-// Validation for modal form
-
-function validateModalForm() {
-    var returnval = true;
-    clearErrors();
-
-    console.log("modal form working");
-
-    var name = document.forms["modalForm"]["name"].value;
-    // console.log(name);
-
-    if (name.length < 5) {
-        setError("edit-name-id", "*length of name is too short");
-        returnval = false;
+//Validating Mail
+function validateMail(mail) {
+    var div = mail.parentNode;
+    var span = div.querySelector("#span");
+    mail = mail.value;
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        span.innerHTML = null;
+        return false;
     }
-
-    var phone = document.forms["modalForm"]["mobile_number"].value;
-    if (phone.length != 10) {
-        setError("edit-mobile-number-id", "*Phone number must be 10 digit");
-        returnval = false;
+    else {
+        // span.innerHTML = "Please check your mail";
+        return true;
     }
-    if (phone.charAt(0) != 6 && phone.charAt(0) != 7 && phone.charAt(0) != 8 && phone.charAt(0) != 9) {
-        setError("edit-mobile-number-id", "*Number should start with 6,7,8,9");
-        returnval = false;
-    }
-
-    var email = document.forms["modalForm"]["email"].value;
-    if (email.indexOf("@") <= 0) {
-        setError("edit-email-id", "*Invalid @ position");
-        returnval = false;
-    }
-    var email = document.forms["modalForm"]["email"].value;
-    if ((email.charAt((email.length)-4) != '.') && (email.charAt((email.length)-3) != '.')) {
-        setError("edit-email-id", "*Invalid . position");
-        returnval = false;
-    }
-
-    var city = document.forms["modalForm"]["city"].value;
-    if (city== " ") {
-        setError("edit-city-id", "*Please Select your city");
-        returnval = false;
-    }
-
-    var state = document.forms["modalForm"]["state"].value;
-    if (state == " ") {
-        setError("edit-state-id", "*Please Select your state");
-        returnval = false;
-    }
-    var country = document.forms["modalForm"]["country"].value;
-    if (country== " ") {
-        setError("edit-country-id", "*Please Select your city");
-        returnval = false;
-    }
-
-    // var id = document.forms["myForm"]["employee_id"].value;
-
-    // var t_id = document.getElementById("table_id");
-    // console.log (t_id.rows[2].cells[0]);
-
-    // t_id.rows.length
-    // if ( ) {
-    //     setError("employee_id", "*Id already exist");
-    //     returnval = false;
-    // }
-
-
-    console.log(returnval);
-    modalFormSubmitCheck(returnval);
-
-    return returnval;
 }
 
+//Validating City
+function validateCity(city) {
+    var div = city.parentNode;
+    var span = div.querySelector("#span");
+    city = city.value;
+    if (city == "") {
+        span.innerHTML = "Please Select your City";
+        return false;
+    }
+    else {
+        span.innerHTML = null;
+        return true;
+    }
+}
 
+//Validating State
+function validateState(state) {
+    var div = state.parentNode;
+    var span = div.querySelector("#span");
+    state = state.value;
+    if (state == "") {
+        span.innerHTML = "Please Select your State";
+        return false;
+    }
+    else {
+        span.innerHTML = null;
+        return true;
+    }
+}
+
+//Validating Country
+function validateCountry(country) {
+    var div = country.parentNode;
+    var span = div.querySelector("#span");
+    country = country.value;
+    if (country == "") {
+        span.innerHTML = "Please Select your Country";
+        return false;
+    }
+    else {
+        span.innerHTML = null;
+        return true;
+    }
+}
+
+//Validating PIN
+function validatePIN(pin) {
+    var div = pin.parentNode;
+    var span = div.querySelector("#span");
+    pin = pin.value;
+    if (/^\d{5,6}$/.test(pin)) {
+        span.innerHTML = null;
+        return true;
+    }
+    else {
+        span.innerHTML = "Please enter 5/6 digit PIN";
+        return false;
+    }
+}
+
+//Checking if everything is validated or not in the Main Form
+function validateAll(id, name, ph, mail, city, state, country, pin) {
+    if (validateID(id) && validateName(name) && validatePh(ph) && validateMail(mail) && validateCity(city)
+        && validateState(state) && validateCountry(country) && validatePIN(pin)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//Checking if everything is validated or not in the Modal Edit
+function validatemAll(name, ph, mail, city, state, country, pin) {
+    if (validateName(name) && validatePh(ph) && validateMail(mail) && validateCity(city)
+        && validateState(state) && validateCountry(country) && validatePIN(pin)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
