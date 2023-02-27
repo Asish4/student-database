@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-lg-6" id="city-id">
                                 <select name="city" id="city" class="form-control" onchange="validateCity(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose a City</option>
                                     <option value="Kolkata">Kolkata</option>
                                     <option value="Mumbai">Mumbai</option>
                                     <option value="Delhi">Delhi</option>
@@ -126,7 +126,7 @@
 
                             <div class="col-lg-6" id="state-id">
                                 <select name="state" id="state" class="form-control" onchange="validateState(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose a State</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="AR">Arunachal Pradesh</option>
@@ -147,7 +147,7 @@
 
                             <div class="col-lg-6" id="country-id">
                                 <select name="country" id="country" class="form-control" onchange="validateCountry(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose a Country</option>
                                     <option value="ind">Ind</option>
                                     <option value="pak">Pak</option>
                                     <option value="aus">Aus</option>
@@ -381,11 +381,15 @@
                                         </div>
                                         <div class="col-lg-6" id="edit-city">
                                             <select name="city" id="city_ids" class="form-control" onchange="validateCity(this)">
-                                                <option value=" ">None</option>
-                                                <option value="Kolkata">Kolkata</option>
+                                                <option value="" disabled selected hidden>Choose a City</option>
                                                 <option value="Mumbai">Mumbai</option>
-                                                <option value="Delhi">Delhi</option>
-                                                <option value="Pune">Pune</option>
+                                                        <option value="Delhi">Delhi</option>
+                                                        <option value="Bangalore">Bangalore</option>
+                                                        <option value="Hydrabad">Hydrabad</option>
+                                                        <option value="Ahmedabad">Ahmedabad</option>
+                                                        <option value="Surat">Surat</option>
+                                                        <option value="Kolkata">Kolkata</option>
+                                                        <option value="Other">Other</option>"
                                             </select>
                                             <span></span>
                                             <span class="formerror" id="span"></span>
@@ -398,17 +402,40 @@
                                             <label for="state">State:</label>
                                         </div>
 
-                                        <div class="col-lg-6 text-right" id="edit-state-id">
+                                        <div class="col-lg-6 " id="edit-state-id">
                                             <select name="state" id="state_ids" class="form-control" onchange="validateState(this)">
+                                                <option value="" disabled selected hidden>Choose a State</option>
                                                 <option value="Andaman and Nicobar Islands">
                                                     Andaman and Nicobar Islands
                                                 </option>
-                                                <option value=" ">None</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                <option value="AR">Arunachal Pradesh</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                                 <option value="Assam">Assam</option>
                                                 <option value="Bihar">Bihar</option>
-                                                <option value="WB">West Bengal</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="West Bengal">West Bengal</option>
                                             </select>
                                             <span></span>
                                             <span class="formerror" id="span"></span>
@@ -421,13 +448,17 @@
                                             <label for="country">Country:</label>
                                         </div>
 
-                                        <div class="col-lg-6 text-right" id="edit-country-id">
+                                        <div class="col-lg-6 " id="edit-country-id">
                                             <select name="country" id="country_ids" class="form-control" onchange="validateCountry(this)">
-                                                <option value=" ">None</option>
-                                                <option value="ind">Ind</option>
-                                                <option value="pak">Pak</option>
-                                                <option value="aus">Aus</option>
-                                                <option value="usa">USA</option>
+                                                <option value="" disabled selected hidden>Choose a Country</option>
+                                                <option value="India">India</option>
+                                                <option value="United States">United States</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="Italy">Italy</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                             <span></span>
                                             <span class="formerror" id="span"></span>

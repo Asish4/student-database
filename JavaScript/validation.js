@@ -1,5 +1,4 @@
-
-//Validating ID
+//Validating ID in form
 function validateID(id) {
     var div = id.parentNode;
     var span = div.querySelector("#span");
@@ -14,7 +13,7 @@ function validateID(id) {
         }
     }
     if (n > 0) {
-        span.innerHTML = "Duplicate data!";
+        span.innerHTML = "You Entered Duplicate data";
         id = null;
         return false;
     }
@@ -29,7 +28,7 @@ function validateID(id) {
     }
 }
 
-//Validating Name
+//Validating Name in form
 function validateName(name) {
     var div = name.parentNode;
     var span = div.querySelector("#span");
@@ -44,29 +43,29 @@ function validateName(name) {
     }
 }
 
-//Validating Phone
-function validatePh(ph) {
-    var div = ph.parentNode;
+//Validating Mobile Number in form
+function validatePh(mobile) {
+    var div = mobile.parentNode;
     var span = div.querySelector("#span");
-    ph = ph.value;
-    if (/^\d{10}$/.test(ph)) {
+    mobile = mobile.value;
+    if (/^\d{10}$/.test(mobile)) {
         span.innerHTML = null;
         return true;
     }
     else {
-        span.innerHTML = "Enter Your 10 Digit no please";
+        span.innerHTML = "Enter Your 10 Digit Mobile Number ";
         return false;
     }
 }
 
-//Validating Mail
+//Validating Gmail in form
 function validateMail(mail) {
     var div = mail.parentNode;
     var span = div.querySelector("#span");
     mail = mail.value;
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
         span.innerHTML = null;
-        return false;
+        return true;
     }
     else {
         // span.innerHTML = "Please check your mail";
@@ -74,7 +73,7 @@ function validateMail(mail) {
     }
 }
 
-//Validating City
+//Validating City in form
 function validateCity(city) {
     var div = city.parentNode;
     var span = div.querySelector("#span");
@@ -89,7 +88,7 @@ function validateCity(city) {
     }
 }
 
-//Validating State
+//Validating State in form
 function validateState(state) {
     var div = state.parentNode;
     var span = div.querySelector("#span");
@@ -104,7 +103,7 @@ function validateState(state) {
     }
 }
 
-//Validating Country
+//Validating Country in form
 function validateCountry(country) {
     var div = country.parentNode;
     var span = div.querySelector("#span");
@@ -119,7 +118,7 @@ function validateCountry(country) {
     }
 }
 
-//Validating PIN
+//Validating PinCode in form
 function validatePIN(pin) {
     var div = pin.parentNode;
     var span = div.querySelector("#span");
@@ -129,13 +128,13 @@ function validatePIN(pin) {
         return true;
     }
     else {
-        span.innerHTML = "Please enter 5/6 digit PIN";
+        span.innerHTML = "Please enter 5-6 PIN";
         return false;
     }
 }
 
-//Checking if everything is validated or not in the Main Form
-function validateAll(id, name, ph, mail, city, state, country, pin) {
+//Check validated or not in the Main form
+function validateAllMainForm(id, name, ph, mail, city, state, country, pin) {
     if (validateID(id) && validateName(name) && validatePh(ph) && validateMail(mail) && validateCity(city)
         && validateState(state) && validateCountry(country) && validatePIN(pin)) {
         return true;
@@ -145,8 +144,8 @@ function validateAll(id, name, ph, mail, city, state, country, pin) {
     }
 }
 
-//Checking if everything is validated or not in the Modal Edit
-function validatemAll(name, ph, mail, city, state, country, pin) {
+//Check validated or not in the Modal form
+function validateAllModalForm(name, ph, mail, city, state, country, pin) {
     if (validateName(name) && validatePh(ph) && validateMail(mail) && validateCity(city)
         && validateState(state) && validateCountry(country) && validatePIN(pin)) {
         return true;
@@ -155,3 +154,4 @@ function validatemAll(name, ph, mail, city, state, country, pin) {
         return false;
     }
 }
+
