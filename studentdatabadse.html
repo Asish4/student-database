@@ -23,7 +23,6 @@
     <body>
         <div class="text-center" >
             <h1>Student Registration Form</h1>
-            
         </div>
         
 
@@ -48,7 +47,6 @@
                                 <span></span>
                                 <span class="formerror" id="span"></span>
                             </div>
-
                             <br /><br />
                         </div>
 
@@ -241,26 +239,7 @@
             </div>
 
             <!-- Toast for show a message "Delete Successfull" -->
-
-            <div
-                class="toast"
-                id="t"
-                role="alert"
-                aria-live="assertive"
-                aria-atomic="true"
-                style="background-color: rgb(4, 102, 231); position: absolute; top: 0; right: 0"
-                ;
-            >
-                <div class="toast-header">
-                    <small>11 mins ago</small>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body">Successfully Deleted</div>
-            </div>
-
-            <!-- Toast for show a message "Successfully submited" -->
+          
             <div
                 aria-live="polite"
                 aria-atomic="true"
@@ -268,15 +247,40 @@
                 style="min-height: 200px"
             >
                 <div
-                    class="toast"
+                    class="toast fixed-top position-absolute"
+                    id="t"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                    style="background-color: #d11a2a; min-height: 17px"
+                >
+                    <div class="toast-header">
+                        <small>message</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">Successfully Deleted</div>
+                </div>
+            </div>
+
+            <!-- Toast for show a message "Successfully submited" -->
+            <div
+                aria-live="polite"
+                aria-atomic="true"
+                class="d-flex justify-content-center "
+                style="min-height: 200px"
+            >
+                <div
+                    class="toast position-absolute fixed-top align-content-end"
                     id="submit_toast"
                     role="alert"
                     aria-live="assertive"
                     aria-atomic="true"
-                    style="background-color: rgb(4, 102, 231)"
+                    style="background-color: #4BB543; min-height: 12px;"
                 >
                     <div class="toast-header">
-                        <small>11 mins ago</small>
+                        <small>message</small>
                         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -284,6 +288,8 @@
                     <div class="toast-body">Successfully Submited</div>
                 </div>
             </div>
+            
+           
 
             <!-- Modal form for edit data -->
 
