@@ -66,7 +66,7 @@ function validateMail(mail) {
     mail = mail.value;
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
         span.innerHTML = null;
-        return false;
+        return true;
     }
     else {
         // span.innerHTML = "Please check your mail";

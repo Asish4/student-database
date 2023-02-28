@@ -83,6 +83,9 @@ function displayDetails() {
             '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
         col9.innerHTML =
             '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
+
+        // Call the toast function
+        showSubmitToast();
     }
 }
 
@@ -94,9 +97,7 @@ function showSubmitToast() {
     b.show();
 }
 
-
-
-
+// Store button element in a global variable
 function myFunction(i) {
     x = i;
 }
@@ -172,8 +173,9 @@ function showDetails() {
         a.childNodes[6].innerHTML = country;
         a.childNodes[7].innerHTML = pinCode;
 
-        col8.innerHTML =
-            '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" ><i class="fa-solid fa-trash"></i></button><button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this) showValues();"  data-target="#editModal" ><i class="fa-solid fa-pen-to-square"></i></button>';
+        // col8.innerHTML =
+        //     '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" ><i class="fa-solid fa-trash"></i></button><button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this) showValues();"  data-target="#editModal" ><i class="fa-solid fa-pen-to-square"></i></button>';
+        showSubmitToast();
     }
 }
 
