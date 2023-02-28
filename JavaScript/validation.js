@@ -66,11 +66,13 @@ function validateMail(mail) {
     mail = mail.value;
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
         span.innerHTML = null;
+        console.log("true main");
         return true;
     }
     else {
-        // span.innerHTML = "Please check your mail";
-        return true;
+        span.innerHTML = "Please check your mail";
+        console.log("false mail");
+        return false;
     }
 }
 
@@ -81,10 +83,12 @@ function validateCity(city) {
     city = city.value;
     if (city == "") {
         span.innerHTML = "Please Select your City";
+        console.log("city false");
         return false;
     }
     else {
         span.innerHTML = null;
+        console.log("city true");
         return true;
     }
 }

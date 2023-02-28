@@ -5,40 +5,17 @@ var c;
 
 function displayDetails() {
 
+    // Get elements of input field
     var id = document.getElementById("employee_id");
-    if (validateID(id)) {
-        var idv = id.value;
-    }
     var name = document.getElementById("name");
-    if (validateName(name)) {
-        var namev = name.value;
-    }
     var ph = document.getElementById("mobile_number");
-    if (validatePh(ph)) {
-        var phv = ph.value;
-    }
-    var mail = document.getElementById("email-id");
-    if (validateMail(mail)) {
-        var mailv = mail.value;
-    }
-    var city = document.getElementById("city-id");
-    if (validateCity(city)) {
-        var cityv = city.value;
-    }
+    var mail = document.getElementById("email");
+    var city = document.getElementById("city");
     var state = document.getElementById("state");
-    if (validateState(state)) {
-        var statev = state.value;
-    }
     var country = document.getElementById("country");
-    if (validateCountry(country)) {
-        var countryv = country.value;
-    }
     var pin = document.getElementById("pin_code");
-    if (validatePIN(pin)) {
-        var pinv = pin.value;
-    }
 
-
+    // If all the validation are true then submit button will work
     if (validateAll(id, name, ph, mail, city, state, country, pin)) {
         var employeId = document.getElementById("employee_id").value;
         var name = document.getElementById("name").value;
@@ -48,7 +25,7 @@ function displayDetails() {
         var state = document.getElementById("state").value;
         var country = document.getElementById("country").value;
         var pinCode = document.getElementById("pin_code").value;
-        // var pinCode = document.getElementById("pin_code").value;
+
 
         // Storing the table elements in a variable using table is
         var takeId = document.getElementById("table_id");
@@ -124,35 +101,15 @@ function showDeleteToast() {
 function showDetails() {
     var a = x.parentNode.parentNode;
 
-    var idv = document.getElementById("employee_ids").value;
+
     var name = document.getElementById("name_ids");
-    if (validateName(name)) {
-        var namev = name.value;
-    }
     var ph = document.getElementById("mobile_ids");
-    if (validatePh(ph)) {
-        var phv = ph.value;
-    }
     var mail = document.getElementById("email_ids");
-    if (validateMail(mail)) {
-        var mailv = mail.value;
-    }
     var city = document.getElementById("city_ids");
-    if (validateCity(city)) {
-        var cityv = city.value;
-    }
     var state = document.getElementById("state_ids");
-    if (validateState(state)) {
-        var statev = state.value;
-    }
     var country = document.getElementById("country_ids");
-    if (validateCountry(country)) {
-        var countryv = country.value;
-    }
     var pin = document.getElementById("p_id");
-    if (validatePIN(pin)) {
-        var pinv = pin.value;
-    }
+
 
     if (validatemAll(name, ph, mail, city, state, country, pin)) {
         var employeId = document.getElementById("employee_ids").value;
@@ -173,8 +130,8 @@ function showDetails() {
         a.childNodes[6].innerHTML = country;
         a.childNodes[7].innerHTML = pinCode;
 
-        // col8.innerHTML =
-        //     '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal" ><i class="fa-solid fa-trash"></i></button><button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this) showValues();"  data-target="#editModal" ><i class="fa-solid fa-pen-to-square"></i></button>';
+
+        // Call the toast function
         showSubmitToast();
     }
 }

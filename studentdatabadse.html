@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-lg-6" id="city-id">
                                 <select name="city" id="city" class="form-control" onchange="validateCity(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose City</option>
                                     <option value="Kolkata">Kolkata</option>
                                     <option value="Mumbai">Mumbai</option>
                                     <option value="Delhi">Delhi</option>
@@ -120,7 +120,7 @@
 
                             <div class="col-lg-6" id="state-id">
                                 <select name="state" id="state" class="form-control" onchange="validateState(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose State</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="AR">Arunachal Pradesh</option>
@@ -141,7 +141,7 @@
 
                             <div class="col-lg-6" id="country-id">
                                 <select name="country" id="country" class="form-control" onchange="validateCountry(this)">
-                                    <option value=" ">None</option>
+                                    <option value="" disabled selected hidden>Choose Country</option>
                                     <option value="ind">Ind</option>
                                     <option value="pak">Pak</option>
                                     <option value="aus">Aus</option>
@@ -369,7 +369,7 @@
                                         <div class="col-lg-6 text-right">
                                             <label for="email">Email:</label>
                                         </div>
-                                        <div class="col-lg-6 text-right" id="edit-email-id">
+                                        <div class="col-lg-6" id="edit-email-id">
                                             <input type="email" id="email_ids" class="form-control" name="email" onchange="validateMail(this)" />
                                             <span></span>
                                             <span class="formerror" id="span"></span>
@@ -383,7 +383,7 @@
                                         </div>
                                         <div class="col-lg-6" id="edit-city">
                                             <select name="city" id="city_ids" class="form-control" onchange="validateCity(this)">
-                                                <option value=" ">None</option>
+                                                <option value="" disabled selected hidden>Choose City</option>
                                                 <option value="Kolkata">Kolkata</option>
                                                 <option value="Mumbai">Mumbai</option>
                                                 <option value="Delhi">Delhi</option>
@@ -405,7 +405,7 @@
                                                 <option value="Andaman and Nicobar Islands">
                                                     Andaman and Nicobar Islands
                                                 </option>
-                                                <option value=" ">None</option>
+                                                <option value="" disabled selected hidden>Choose State</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="AR">Arunachal Pradesh</option>
                                                 <option value="Assam">Assam</option>
@@ -425,7 +425,7 @@
 
                                         <div class="col-lg-6 text-right" id="edit-country-id">
                                             <select name="country" id="country_ids" class="form-control" onchange="validateCountry(this)">
-                                                <option value=" ">None</option>
+                                                <option value="" disabled selected hidden>Choose Country</option>
                                                 <option value="ind">Ind</option>
                                                 <option value="pak">Pak</option>
                                                 <option value="aus">Aus</option>
