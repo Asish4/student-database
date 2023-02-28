@@ -36,30 +36,31 @@ function displayDetails() {
         takeId.appendChild(row);
 
         // add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
-        var col0 = row.appendChild(document.createElement("td"));
-        var col1 = row.appendChild(document.createElement("td"));
-        var col2 = row.appendChild(document.createElement("td"));
-        var col3 = row.appendChild(document.createElement("td"));
-        var col4 = row.appendChild(document.createElement("td"));
-        var col5 = row.appendChild(document.createElement("td"));
-        var col6 = row.appendChild(document.createElement("td"));
-        var col7 = row.appendChild(document.createElement("td"));
-        var col8 = row.appendChild(document.createElement("td"));
-        var col9 = row.appendChild(document.createElement("td"));
-
-        // Add data in column
-        col0.innerHTML = employeId;
-        col1.innerHTML = name;
-        col2.innerHTML = mobileNumber;
-        col3.innerHTML = email;
-        col4.innerHTML = city;
-        col5.innerHTML = state;
-        col6.innerHTML = country;
-        col7.innerHTML = pinCode;
-        col8.innerHTML =
-            '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
-        col9.innerHTML =
+        var col0 = row.appendChild(document.createElement("td")).innerHTML = employeId;
+        var col1 = row.appendChild(document.createElement("td")).innerHTML = name;
+        var col2 = row.appendChild(document.createElement("td")).innerHTML = mobileNumber;
+        var col3 = row.appendChild(document.createElement("td")).innerHTML = email;
+        var col4 = row.appendChild(document.createElement("td")).innerHTML = city;
+        var col5 = row.appendChild(document.createElement("td")).innerHTML = state;
+        var col6 = row.appendChild(document.createElement("td")).innerHTML = country;
+        var col7 = row.appendChild(document.createElement("td")).innerHTML = pinCode;
+        var col8 = row.appendChild(document.createElement("td")).innerHTML = '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
+        var col9 = row.appendChild(document.createElement("td")).innerHTML =
             '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
+
+        // // Add data in column
+        // col0.innerHTML = employeId;
+        // col1.innerHTML = name;
+        // col2.innerHTML = mobileNumber;
+        // col3.innerHTML = email;
+        // col4.innerHTML = city;
+        // col5.innerHTML = state;
+        // col6.innerHTML = country;
+        // col7.innerHTML = pinCode;
+        // col8.innerHTML =
+        //     '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
+        // col9.innerHTML =
+        //     '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 
         // Call the toast function
         showSubmitToast();
