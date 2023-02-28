@@ -48,21 +48,7 @@ function displayDetails() {
         var col9 = row.appendChild(document.createElement("td")).innerHTML =
             '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 
-        // // Add data in column
-        // col0.innerHTML = employeId;
-        // col1.innerHTML = name;
-        // col2.innerHTML = mobileNumber;
-        // col3.innerHTML = email;
-        // col4.innerHTML = city;
-        // col5.innerHTML = state;
-        // col6.innerHTML = country;
-        // col7.innerHTML = pinCode;
-        // col8.innerHTML =
-        //     '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
-        // col9.innerHTML =
-        //     '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 
-        // Call the toast function
         showSubmitToast();
     }
 }
@@ -84,7 +70,6 @@ function myFunction(i) {
 function del() {
     var row_parent = x.parentNode.parentNode;
     var table_parent = row_parent.parentNode;
-
     table_parent.removeChild(row_parent);
 }
 
@@ -94,8 +79,6 @@ function showDeleteToast() {
     var b = new bootstrap.Toast(a);
     b.show();
 }
-
-
 
 
 // Show data for EDIT Form
@@ -136,6 +119,7 @@ function showDetails() {
         // Call the toast function for Showing a message after submission
         showSubmitToast();
     }
+
 }
 
 //Show values on modal form

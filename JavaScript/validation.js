@@ -36,10 +36,12 @@ function validateName(name) {
     name = name.value;
     if (/^[a-zA-Z]+([ ][a-zA-Z]+)*$/.test(name)) {
         span.innerHTML = null;
+        document.getElementById("button_id").disabled = false;
         return true;
     }
     else {
         span.innerHTML = "Please Check your name (A-Z/a-z)";
+        document.getElementById("button_id").disabled = true;
         return false;
     }
 }
@@ -51,10 +53,12 @@ function validatePh(ph) {
     ph = ph.value;
     if (/^\d{10}$/.test(ph)) {
         span.innerHTML = null;
+        document.getElementById("button_id").disabled = false;
         return true;
     }
     else {
         span.innerHTML = "Enter Your 10 Digit no please";
+        document.getElementById("button_id").disabled = true;
         return false;
     }
 }
@@ -65,11 +69,13 @@ function validateMail(mail) {
     var span = div.querySelector("#span");
     mail = mail.value;
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        document.getElementById("button_id").disabled = false;
         span.innerHTML = null;
 
         return true;
     }
     else {
+        document.getElementById("button_id").disabled = true;
         span.innerHTML = "Please check your mail";
 
         return false;
@@ -83,12 +89,13 @@ function validateCity(city) {
     city = city.value;
     if (city == "") {
         span.innerHTML = "Please Select your City";
-        console.log("city false");
+        document.getElementById("button_id").disabled = true;
+
         return false;
     }
     else {
         span.innerHTML = null;
-        console.log("city true");
+        document.getElementById("button_id").disabled = false;
         return true;
     }
 }
@@ -100,10 +107,12 @@ function validateState(state) {
     state = state.value;
     if (state == "") {
         span.innerHTML = "Please Select your State";
+        document.getElementById("button_id").disabled = true;
         return false;
     }
     else {
         span.innerHTML = null;
+        document.getElementById("button_id").disabled = false;
         return true;
     }
 }
@@ -115,10 +124,12 @@ function validateCountry(country) {
     country = country.value;
     if (country == "") {
         span.innerHTML = "Please Select your Country";
+        document.getElementById("button_id").disabled = true;
         return false;
     }
     else {
         span.innerHTML = null;
+        document.getElementById("button_id").disabled = false;
         return true;
     }
 }
@@ -130,10 +141,12 @@ function validatePIN(pin) {
     pin = pin.value;
     if (/^\d{5,6}$/.test(pin)) {
         span.innerHTML = null;
+        document.getElementById("button_id").disabled = false;
         return true;
     }
     else {
         span.innerHTML = "Please enter 5/6 digit PIN";
+        document.getElementById("button_id").disabled = true;
         return false;
     }
 }
