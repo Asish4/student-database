@@ -66,12 +66,12 @@ function validateMail(mail) {
     mail = mail.value;
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
         span.innerHTML = null;
-        console.log("true main");
+
         return true;
     }
     else {
         span.innerHTML = "Please check your mail";
-        console.log("false mail");
+
         return false;
     }
 }

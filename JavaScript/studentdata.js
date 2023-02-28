@@ -27,7 +27,7 @@ function displayDetails() {
         var pinCode = document.getElementById("pin_code").value;
 
 
-        // Storing the table elements in a variable using table is
+        // Storing the table elements in a variable using table id
         var takeId = document.getElementById("table_id");
 
         // Creating a tr(Table row) element and store the element in row variable
@@ -97,11 +97,11 @@ function showDeleteToast() {
 
 
 
-// Show date after Edit
+// Show data for EDIT Form
 function showDetails() {
     var a = x.parentNode.parentNode;
 
-
+    // Get elements of input field
     var name = document.getElementById("name_ids");
     var ph = document.getElementById("mobile_ids");
     var mail = document.getElementById("email_ids");
@@ -110,7 +110,7 @@ function showDetails() {
     var country = document.getElementById("country_ids");
     var pin = document.getElementById("p_id");
 
-
+    // If all the validation are true then submit button will work
     if (validatemAll(name, ph, mail, city, state, country, pin)) {
         var employeId = document.getElementById("employee_ids").value;
         var name = document.getElementById("name_ids").value;
@@ -121,6 +121,7 @@ function showDetails() {
         var country = document.getElementById("country_ids").value;
         var pinCode = document.getElementById("p_id").value;
 
+        // Add data in column
         a.childNodes[0].innerHTML = employeId;
         a.childNodes[1].innerHTML = name;
         a.childNodes[2].innerHTML = mobileNumber;
@@ -131,7 +132,7 @@ function showDetails() {
         a.childNodes[7].innerHTML = pinCode;
 
 
-        // Call the toast function
+        // Call the toast function for Showing a message after submission
         showSubmitToast();
     }
 }
