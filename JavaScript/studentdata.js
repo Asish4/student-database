@@ -118,7 +118,7 @@ function displayDetails() {
             "country": document.getElementById("country").value,
             "pin": document.getElementById("pin_code").value
         }
-        // console.log(JSON.stringify(datas));
+
         console.log(datas);
         var url = url = "http://192.168.0.107:8080/students"
 
