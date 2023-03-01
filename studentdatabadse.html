@@ -17,10 +17,12 @@
         <!-- font-awesome icon cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
+        <!-- Import Css File -->
         <link rel="stylesheet" href="./css/studentdata.css" />
     </head>
 
     <body>
+    
         <div class="text-center" >
             <h1>Student Registration Form</h1>
         </div>
@@ -228,7 +230,7 @@
                                 type="button"
                                 data-dismiss="modal"
                                 class="btn btn-primary"
-                                onclick="showDeleteToast(); del();"
+                                onclick="del();"
                                 id="myBtn"
                             >
                                 Yes
@@ -248,7 +250,7 @@
             >
                 <div
                     class="toast fixed-top position-absolute"
-                    id="t"
+                    id="toast-id"
                     role="alert"
                     aria-live="assertive"
                     aria-atomic="true"
@@ -469,7 +471,8 @@
             </div>
             <div class="col-lg-5"></div>
         </div>
-
+        
+        <!-- Import the JavaScript files  -->
         <script src="./JavaScript/studentdata.js"></script>
         <script src="./JavaScript/validation.js"></script>
     </body>

@@ -3,6 +3,8 @@ var x;
 var y;
 var c;
 
+
+// Displaying data in the table
 function displayDetails() {
 
     // Get elements of input field
@@ -49,17 +51,15 @@ function displayDetails() {
             '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 
 
-        showSubmitToast();
+        //Show Submit toast
+        var a = document.getElementById("submit_toast");
+        var b = new bootstrap.Toast(a);
+        b.show();
     }
 }
 
-//Show Submit toast
-function showSubmitToast() {
-    console.log("Working");
-    var a = document.getElementById("submit_toast");
-    var b = new bootstrap.Toast(a);
-    b.show();
-}
+
+
 
 // Store button element in a global variable
 function myFunction(i) {
@@ -71,14 +71,16 @@ function del() {
     var row_parent = x.parentNode.parentNode;
     var table_parent = row_parent.parentNode;
     table_parent.removeChild(row_parent);
-}
 
-// Show delete toast
-function showDeleteToast() {
-    var a = document.getElementById("t");
+    // Show delete toast
+    var a = document.getElementById("toast-id");
     var b = new bootstrap.Toast(a);
     b.show();
 }
+
+
+
+
 
 
 // Show data for EDIT Form
@@ -116,8 +118,10 @@ function showDetails() {
         a.childNodes[7].innerHTML = pinCode;
 
 
-        // Call the toast function for Showing a message after submission
-        showSubmitToast();
+        //Show Submit toast
+        var a = document.getElementById("submit_toast");
+        var b = new bootstrap.Toast(a);
+        b.show();
     }
 
 }
