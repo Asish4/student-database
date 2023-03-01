@@ -235,7 +235,7 @@ function showDeleteToast() {
 function showDetails() {
 
     var a = x.parentNode.parentNode;
-    console.log(a);
+
 
     var idv = document.getElementById("employee_ids");
     var name = document.getElementById("name_ids");
@@ -266,11 +266,20 @@ function showDetails() {
     if (validatePIN(pin)) {
         var pinv = pin.value;
     }
+    // Get elements of input field
+    var id = document.getElementById("employee_ids")
+    var name = document.getElementById("name_ids");
+    var ph = document.getElementById("mobile_ids");
+    var mail = document.getElementById("email_ids");
+    var city = document.getElementById("city_ids");
+    var state = document.getElementById("state_ids");
+    var country = document.getElementById("country_ids");
+    var pin = document.getElementById("p_id");
 
     if (validateAllModalForm(name, ph, mail, city, state, country, pin)) {
 
         var myId = document.getElementById("employee_ids").value = a.childNodes[0].innerHTML;
-        console.log(myId);
+
 
         // API PUT
         datas = {
@@ -282,8 +291,7 @@ function showDetails() {
             "country": document.getElementById("country_ids").value,
             "pin": document.getElementById("p_id").value
         }
-        // console.log(JSON.stringify(datas));
-        console.log("HEllo");
+
         var url = url = "http://192.168.0.107:8080/students"
         url = url + "/" + myId
         console.log(url);
@@ -301,6 +309,15 @@ function showDetails() {
             return response.json();
         }).then((Data) => {
 
+            // Add data in column
+            // a.childNodes[0].innerHTML = id;
+            a.childNodes[1].innerHTML = Data.name;
+            a.childNodes[2].innerHTML = Data.phoneNo;
+            a.childNodes[3].innerHTML = Data.email;
+            a.childNodes[4].innerHTML = Data.city;
+            a.childNodes[5].innerHTML = Data.state;
+            a.childNodes[6].innerHTML = Data.country;
+            a.childNodes[7].innerHTML = Data.pin;
 
         })
 
