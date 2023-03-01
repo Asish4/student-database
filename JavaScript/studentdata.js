@@ -119,11 +119,11 @@ function displayDetails() {
             "pin": document.getElementById("pin_code").value
         }
 
-        console.log(datas);
+
         var url = url = "http://192.168.0.107:8080/students"
 
         param = {
-            method: "post",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -135,6 +135,38 @@ function displayDetails() {
             return response.json();
         }).then((Data) => {
 
+            // Store the table id 
+            var takeId = document.getElementById("table_id");
+            // Creating a tr(Table row) element and store the element in row variable
+            var row = document.createElement("tr");
+            // Adding a row(child) to the table(patrnt)
+            takeId.appendChild(row);
+
+            // add the "td"(Child) to the "tr"(Parent) and stote the "td" elements in a vaiable like col0
+            var col0 = row.appendChild(document.createElement("td"));
+            var col1 = row.appendChild(document.createElement("td"));
+            var col2 = row.appendChild(document.createElement("td"));
+            var col3 = row.appendChild(document.createElement("td"));
+            var col4 = row.appendChild(document.createElement("td"));
+            var col5 = row.appendChild(document.createElement("td"));
+            var col6 = row.appendChild(document.createElement("td"));
+            var col7 = row.appendChild(document.createElement("td"));
+            var col8 = row.appendChild(document.createElement("td"));
+            var col9 = row.appendChild(document.createElement("td"));
+
+            // Add data in column
+            col0.innerHTML = Data.id;
+            col1.innerHTML = Data.name;
+            col2.innerHTML = Data.phoneNo;
+            col3.innerHTML = Data.email;
+            col4.innerHTML = Data.city;
+            col5.innerHTML = Data.state;
+            col6.innerHTML = Data.country;
+            col7.innerHTML = Data.pin;
+            col8.innerHTML =
+                '<button type="button" class="btn btn-outline-info" data-toggle="modal" onclick="myFunction(this); showValues();"  data-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>';
+            col9.innerHTML =
+                '<button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="myFunction(this)" data-target="#exampleModal"> <i class="fa-solid fa-trash"></i></button>';
 
         })
 
